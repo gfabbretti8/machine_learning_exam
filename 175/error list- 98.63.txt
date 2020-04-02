@@ -1,0 +1,14 @@
+Classification subject: BIRDS There were 12 errors in 875 tests for an accuracy of  98.63 
+         CLASS                     FILENAME      
+    BALTIMORE ORIOLE         BALTIMORE ORIOLE\2.jpg
+     BLACK SKIMMER           BLACK SKIMMER\1.jpg 
+    CALIFORNIA GULL          CALIFORNIA GULL\1.jpg
+    CHIPPING SPARROW         CHIPPING SPARROW\5.jpg
+        FRIGATE                 FRIGATE\1.jpg    
+        FRIGATE                 FRIGATE\4.jpg    
+      GOLDEN EAGLE            GOLDEN EAGLE\2.jpg 
+      GRAY CATBIRD            GRAY CATBIRD\3.jpg 
+     HOUSE SPARROW           HOUSE SPARROW\2.jpg 
+    PURPLE SWAMPHEN          PURPLE SWAMPHEN\2.jpg
+     TURKEY VULTURE          TURKEY VULTURE\1.jpg
+   WESTERN MEADOWLARK        WESTERN MEADOWLARK\5.jpg
