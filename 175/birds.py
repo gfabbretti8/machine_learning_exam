@@ -3,9 +3,10 @@ import numpy as np
 import os
 import shutil
 import matplotlib.pyplot as plt
-from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array, array_to_img
-from keras.losses import categorical_crossentropy
-from keras.layers.advanced_activations import LeakyReLU
+import keras
+from tensorflow.keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array, array_to_img
+from tensorflow.keras.losses import categorical_crossentropy
+
 
 
 train_datagen = ImageDataGenerator(
@@ -47,13 +48,14 @@ test_generator = test_datagen.flow_from_directory(
 STEP_SIZE_TRAIN = train_generator.n//train_generator.batch_size
 STEP_SIZE_VALID = valid_generator.n//valid_generator.batch_size
 
-from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-from keras.models import Sequential
-from keras import optimizers
+import tensorflow as tf
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.models import Sequential
+from tensorflow.keras import optimizers
 
 input_shape = (100, 100, 3)
 
-model = Sequential()
+model = tf.keras.Sequential()
 
 model.add(Conv2D(16, kernel_size=(3, 3), activation='relu', input_shape=input_shape))
 model.add(MaxPooling2D(pool_size=(2, 2),  padding='same'))
@@ -75,7 +77,7 @@ model.compile(loss=categorical_crossentropy,
 
 model.summary()
 
-model.fit_generator(generator=train_generator,
+model.fit(x=train_generator,
                     steps_per_epoch=STEP_SIZE_TRAIN,
                     validation_data=valid_generator,
                     validation_steps=STEP_SIZE_VALID,
