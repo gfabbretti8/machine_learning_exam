@@ -1,16 +1,4 @@
 # %% [code]
-!git clone https://github.com/gfabbretti8/CloserLookFewShot.git
-
-# %% [code]
-import os
-os.chdir("CloserLookFewShot")
-
-# %% [code]
-from data.datamgr import SimpleDataManager, SetDataManager
-from methods.baselinetrain import BaselineTrain
-from methods.baselinefinetune import BaselineFinetune
-
-# %% [code]
 # Download the cat/folder to flower name map dict.
 
 import json
@@ -379,13 +367,13 @@ def save_checkpoint(checkpoint_path, model):
 def load_checkpoint(checkpoint_path):
     checkpoint = torch.load(checkpoint_path, map_location='cpu')
 
-    model = models.resnet10(pretrained=False)
+    model = models.resnet152(pretrained=False)
 
     for param in model.parameters():
        param.requires_grad = False
 
     # Put the classifier on the pretrained network
-    model.fc = FFClassifier(512, 102)
+    model.fc = FFClassifier(2048, 102)
 
     model.load_state_dict(checkpoint['state_dict'])
     model.class_to_idx = checkpoint["class_to_idx"]
@@ -395,7 +383,7 @@ def load_checkpoint(checkpoint_path):
     return model
 
 # Load pretrained model.
-model = models.resnet10(pretrained=True)
+model = models.resnet152(pretrained=True)
 model_requires_grad_params = []
 
 # Freeze parameters so we don't backprop through them
