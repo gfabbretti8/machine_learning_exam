@@ -1,0 +1,3 @@
+[submodule "low-shot-shrink-hallucinate"]
+	path = low-shot-shrink-hallucinate
+	url = https://github.com/gfabbretti8/low-shot-shrink-hallucinate.git
